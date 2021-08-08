@@ -6,8 +6,8 @@ import math
 # 0 <= s <= 255 (彩度)　黒や白の値が抽出されるときはこの閾値を大きくする
 # 0 <= v <= 255 (明度)　これが大きいと明るく，小さいと暗い
 # ここでは青色を抽出するので120±20を閾値とした
-LOW_COLOR = np.array([5, 50, 50])
-HIGH_COLOR = np.array([15, 255, 255])
+LOW_COLOR = np.array([110, 50, 50])
+HIGH_COLOR = np.array([130, 255, 255])
 
 # 抽出する青色の塊のしきい値
 AREA_RATIO_THRESHOLD = 0.005
@@ -72,8 +72,9 @@ def main():
         if pos is not None:
             # 抽出した座標に丸を描く
             cv2.circle(frame,pos,10,(0,0,255),-1)
-        degree = math.degrees(math.atan2(240 - pos[1], 320 - pos[0])) - 90
-        print(degree)
+            #print(pos[0])
+            degree = math.degrees(math.atan2(240 - pos[1], 320 - pos[0])) - 90
+            print(degree)
         # 画面に表示する
         cv2.imshow('frame',frame)
 
