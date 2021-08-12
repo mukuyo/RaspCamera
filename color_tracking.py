@@ -2,24 +2,13 @@ import cv2
 import numpy as np
 import math
 
-# 0 <= h <= 179 (色相)　OpenCVではmax=179なのでR:0(180),G:60,B:120となる
-# 0 <= s <= 255 (彩度)　黒や白の値が抽出されるときはこの閾値を大きくする
-# 0 <= v <= 255 (明度)　これが大きいと明るく，小さいと暗い
-# ここでは青色を抽出するので120±20を閾値とした
-LOW_COLOR = np.array([110, 50, 50])
-HIGH_COLOR = np.array([130, 255, 255])
+LOW_COLOR = np.array([0, 35, 204])
+HIGH_COLOR = np.array([32, 255, 255])
 
-# 抽出する青色の塊のしきい値
 AREA_RATIO_THRESHOLD = 0.005
 
 def find_specific_color(frame,AREA_RATIO_THRESHOLD,LOW_COLOR,HIGH_COLOR):
-    """
-    指定した範囲の色の物体の座標を取得する関数
-    frame: 画像
-    AREA_RATIO_THRESHOLD: area_ratio未満の塊は無視する
-    LOW_COLOR: 抽出する色の下限(h,s,v)
-    HIGH_COLOR: 抽出する色の上限(h,s,v)
-    """
+
     # 高さ，幅，チャンネル数
     h,w,c = frame.shape
     # h = 480, w =  640find_specific_color

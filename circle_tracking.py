@@ -50,7 +50,7 @@ if __name__ == '__main__':
   while True:
     # 赤色の円を抽出する
     frame = cap.read()[1]
-    getframe = getCircle(frame, np.array([60, 120, 80]), np.array([180, 255, 255]))
+    getframe = getCircle(frame, np.array([0, 35, 204]), np.array([32, 255, 255]))
  
     if getframe is not None:
       # 見つかった円の上に青い円を描画
